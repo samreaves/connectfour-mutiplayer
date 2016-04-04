@@ -2,13 +2,13 @@
 
 
 // Test the Test controller (Lane)
-describe('Controller: PostsCtrl', function () {
+describe('Controller: HomeCtrl', function () {
   
   // Before each test, load the Encryption module
-  beforeEach(module('commutatio.posts'));
+  beforeEach(module('connectfour.home'));
 
   // Initialize global test variables
-  var PostsCtrl, rootScope, scope;
+  var HomeCtrl, rootScope, scope;
   
   // Before each test, load the controller, rootScope, and $timeout
   beforeEach(
@@ -17,7 +17,7 @@ describe('Controller: PostsCtrl', function () {
     scope = $rootScope.$new();
     
     // Initialize a new scope.
-    PostsCtrl = $controller('PostsCtrl', {
+    HomeCtrl = $controller('HomeCtrl', {
       $scope: scope,
     });
 
@@ -27,7 +27,7 @@ describe('Controller: PostsCtrl', function () {
    it('should expect Posts Controller to be defined', inject(function () {
     
     // Expect EncryptionCtrl to be defined
-    expect(PostsCtrl).toBeDefined();
+    expect(HomeCtrl).toBeDefined();
 
   }));
 });
