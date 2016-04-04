@@ -1,0 +1,25 @@
+{
+  "name": "connectfour-mutiplayer",
+  "version": "0.0.1",
+  "description": "Converting old jQuery prototype connect four game into multiplayer game server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samreaves/connectfour-mutiplayer.git"
+  },
+  "author": "Sam Reaves <thesamreaves@gmail.com> (http://www.github.com/samreaves)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samreaves/connectfour-mutiplayer/issues"
+  },
+  "homepage": "https://github.com/samreaves/connectfour-mutiplayer",
+  "dependencies": {
+    "express": "4.13.4",
+    "path": "0.12.7",
+    "socket.io": "1.4.5"
+  }
+}
