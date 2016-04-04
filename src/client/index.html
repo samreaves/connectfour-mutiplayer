@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Connect Four</title>
+	</head>
+	<body>
+		
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  	<script src="./bower_components/socket.io-client/socket.io.js"></script>
+  	<script>
+  		var socket = io();
+
+  		socket.on('messages', function(message) {
+  			$('body').text(message.data);
+  		});
+  	</script>
+	</body>
+</html>
