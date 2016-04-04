@@ -10,5 +10,5 @@ var socket = io.connect('http://localhost:3000');
 
 socket.on('messages', function(message) {
 	console.log("message received: ", message.data);
-	$('body').text(message.data);
+	alert(message.data);
 });
