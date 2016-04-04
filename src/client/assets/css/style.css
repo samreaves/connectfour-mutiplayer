@@ -1,0 +1,360 @@
+/* 
+ * ConnectFour Flat
+ * Written by Sam Reaves
+ * October 2013
+ */
+
+
+/* display: block; on root means that every element by default displays vertically on top of one another. */
+root { 
+    display: block;
+}
+
+
+
+/* 
+In the entire HTML document: 
+    There is by default no padding, margin, border, or text selection. 
+    The default color for text is white (#FFF), and the font-size is the device's default font size
+*/
+html {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    color: #FFF;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+/* By default, the body's background color is iPhone 5C green */
+body {
+    background: #97e365;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    color: #FFF;
+}
+
+
+
+/* No link or image shall have a border */
+a, img {
+    border: 0;
+}
+
+
+
+/* No h1 shall have a margin, border or padding */
+h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+/* 
+My game div shall:
+    be placed with no margin-top or bottom (0) and shall be in the center of the screen horizontally (auto)
+    be 613 pixels wide exactly (width: 613px)
+    stretch the length of its content vertically (height: auto)
+    have its padding and border included into its width (box-sizing: border-box)
+*/
+#game {
+    margin: 0 auto;
+    padding: 0;
+    top: 0px;
+    width: 613px;
+    height: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+}
+
+
+/* 
+My header div shall:
+    be placed with no margin-top or bottom (0) and shall be in the center of the screen horizontally (auto)
+    be 613 pixels wide exactly (width: 613px)
+    be 50 pixels tall exactly (height 50px)
+    have its text aligned center on the page (text-align: center)
+    use the font Montserrat
+    have a font-size of 1.5 times the default font-size of the device
+*/
+#header {
+    height: 50px;
+    width: 613px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+
+/* 
+My messages div shall:
+    be 613 pixels wide exactly (width: 613px)
+    be 50 pixels tall exactly (height: 50px)
+    have its text aligned center on the page (text-align: center)
+    have a padding-top of 15 pixels (padding: 15px 0 0 0)
+*/
+#messages {
+    width: 613px;
+    height: 50px;
+    padding: 15px 0 0 0;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+
+/* 
+My drop_space div shall:
+    be 613 pixels wide exactly (width: 613px)
+    be 80 pixels tall exactly (height: 80px)
+*/
+#drop_space {
+    width: 613px;
+    height: 80px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+
+}
+
+
+/* 
+My game_board div shall:
+    be 613 pixels wide exactly (width: 613px)
+    be 508 pixels tall exactly (height: 508px)
+    have a rounded border at all corners of 16 pixels (border-radius: 16px)
+    have a padding on all 4 sides of 16 pixels (padding: 16px)
+    have a background color of #44b5ef
+    have a z-index (think 3D) of 3. Anything lower than that will be "below" the gameboard. Anything higher will be "above" the gameboard
+*/
+#game_board {
+    width: 613px;
+    height: 508px;    
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #44b5ef;
+    z-index: 3;
+    position: relative;
+}
+
+
+
+
+/* 
+Each column div shall:
+    be 498 pixels tall exactly (height: 498px)
+    be displayed horizontally instead of vertically (display: inline-block)
+    have a z-index (think 3D) of 1. It's below everything.
+*/
+.col {
+    display: inline-block;
+    width: auto;
+    height: 498px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    z-index: 1;
+}
+
+
+
+/* 
+Each space div shall:
+    be 75 pixels wide exactly (width: 75px)
+    be 75 pixels tall exactly (height: 75px)
+    have a rounded border at all corners of 50% of its width (border-radius: 50%). That makes a circle.
+    have a margin-top and margin-bottom of 4px, margin-right and margin-left of 2px (margin: 4px 2px)
+    have a white background (#FFF)
+*/
+.space {
+    width: 75px;
+    height: 75px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    display: block;
+    background: #FFF;
+    padding: 0;
+    margin: 4px 2px;
+}
+
+/* 
+Each token div shall:
+    be 75 pixels wide exactly (width: 75px)
+    be 75 pixels tall exactly (height: 75px)
+    have a rounded border at all corners of 50% of its width (border-radius: 50%). That makes a circle.
+    have a padding on all 4 sides of 16 pixels (padding: 16px)
+    have a background color of #44b5ef
+    have a z-index (think 3D) of 99. It's above EVERYTHING.
+    change the cursor (mouse icon) to pointer whenever the token is hovered upon (cursor: pointer). The pointer is what you typically see when you hover over something you can click on.
+    be positioned absolutely. This means that no matter what is around it, I want it RIGHT THERE. (position: absolute)
+    be positioned 18 pixels away from the left side of the drop_space (left: 18px)
+*/
+.token {
+    width: 75px; 
+    height: 75px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    left: 18px;
+}
+
+/* 
+Each playedToken div shall:
+    basically resemble the same as the token
+*/
+.playedToken {
+    width: 75px; 
+    height: 75px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    position: absolute;
+    z-index: 99;
+    left: 18px;   
+}
+
+
+/*
+Each element belonging to player 1 shall have a background color of iPhone 5C red (#ff6e6e)
+*/
+.player1 {
+    background: #ff6e6e;
+}
+
+/*
+Each element belonging to player 2 shall have a background color of iPhone 5C yellow (#fff06e)
+*/
+.player2 {
+    background: #fff06e;
+
+}
+
+/* 
+My change_background div shall:
+    be 613 pixels wide exactly (width: 613px)
+    be 50 pixels tall exactly (height: 50px)
+    have a margin-top of 10px (margin: 10px 0 0 0)
+*/
+#change_background {
+    height: 50px;
+    width: 613px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 10px 0 0 0;
+}
+
+/* 
+My span inside the change_background div shall:
+    be displayed inline (display: inline-block)
+    be vertically aligned to the top of its parent, the change_background div. (vertical-align: top)
+    have a padding on all four sides of 10 pixels (padding: 10px)
+*/
+#change_background span {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+}
+
+/*
+Each background_change_color div shall:
+    be displayed inline (display: inline-block)
+    have a height of exactly 45 pixels (height: 45px)    
+    have a width of exactly 45 pixels (width: 45px)   
+    have a margin-right of 15 pixels (margin: 0 15px 0 0) 
+    have no padding
+*/
+.background_change_color {
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    margin: 0 15px 0 0;
+    padding: 0;
+}
+
+/*
+My background_change_black div shall:
+    have a background of black (background: #000)
+    have the cursor changed to a pointer (cursor: pointer)
+*/
+#background_change_black {
+    background: #000;
+    cursor: pointer;
+}
+
+/*
+My background_change_white div shall:
+    have a background of white (background: #FFF)
+    have the cursor changed to a pointer (cursor: pointer)
+*/
+#background_change_white {
+    background: #FFF;
+    cursor: pointer;
+}
+
+/*
+My background_change_green div shall:
+    have a background of iPhone 5C green (background: #97e365)
+    have the cursor changed to a pointer (cursor: pointer)
+*/
+#background_change_green {
+    background: #97e365;
+    cursor: pointer;
+}
+
+/*
+Each playAgain div shall:
+    have a background of iPhone 5C red (background: #ff6e6e)
+    have a width of exactly 300 pixels (width: 300px)
+    have a height of exactly 40 pixels (height: 40px)
+    have a rounded border at each corner of 8 pixels (border-radius: 8px)
+    have white text (color: #FFF)
+    have a font-size of 1.4 times the default font-size of the device (font-size: 1.4rem)
+    have the cursor changed to a pointer (cursor: pointer)
+    be placed with no margin on top or bottom, but centered inside its parent, in this case #drop_space. (margin: 0 auto)
+    have a padding-top of 8 pixels (padding: 8px 0 0 0)
+    have its text centered inside of it (text-align: center)
+*/
+.playAgain {
+    background: #ff6e6e;
+    width: 300px;
+    height: 40px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    color: #FFF;
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 8px 0 0 0;
+    margin: 0 auto;
+    text-align: center;
+}
